@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './MiawForm.css'
 import AmountSelector from './AmountSelector';
+import ErrorModal from '../ErrorModal/ErrorModal';
 
 
 const MiawForm = (props) => {
@@ -8,6 +9,7 @@ const MiawForm = (props) => {
     const miawNameRef = useRef();
     const miawMessageRef = useRef();
     const [selectedAmount, setSelectedAmount] = useState('')
+    const [error, setError] = useState();
 
     const submitFormHandler = (event) => {
         event.preventDefault();
@@ -17,6 +19,14 @@ const MiawForm = (props) => {
             message: miawMessageRef.current.value,
             amount: selectedAmount,
             id: Math.floor(Math.random()*1000),
+        }
+
+        if(miawNameRef.current.value.trim().length === 0 || miawMessageRef.current.value.trim().length === 0) {
+            setError({
+                title: "😿 Invalid Miawput",
+                message: 'Please enter a valid Name and Message right MIAW'
+            })
+            return;
         }
         props.onGetMiawInput(miawUserInput)
         miawNameRef.current.value = "";
@@ -29,8 +39,13 @@ const MiawForm = (props) => {
         setSelectedAmount(selectedValue);
     }
 
+    const resetErrorModal = () => {
+        setError(null)
+    }
+
     return (
         <>
+            { error && <ErrorModal title={error.title} message={error.message} removeError={resetErrorModal}/>}
             <form onSubmit={submitFormHandler} className='miaw-form'>
                 <div>
                     <input type="text" ref={miawNameRef} placeholder='1 MIAW for init name'/>

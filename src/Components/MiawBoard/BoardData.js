@@ -50,17 +50,17 @@ const board_data = [
     {
         message: 'Captian Fox',
         amount: '3,298 MIAW',
-        id: 4,
+        id: 10,
     },
     {
         message: 'OxDyno',
         amount: '2,013 MIAW',
-        id: 10,
+        id: 11,
     },
     {
         message: 'Old McMiaw had a Farm',
         amount: '1,890 MIAW',
-        id: 11,
+        id: 12,
     }
 ]
 
