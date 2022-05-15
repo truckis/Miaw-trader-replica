@@ -1,0 +1,15 @@
+.component-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 55px;
+}
+
+.left-container {
+  flex-basis: 20%;
+  margin-right: 20px;
+}
+
+.right-container {
+  flex-basis: 85%;
+}
+

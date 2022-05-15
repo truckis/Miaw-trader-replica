@@ -1,0 +1,12 @@
+.select-container {
+    width: 12rem;
+    padding: 8px;
+    word-spacing: 5px;
+    font-size: 18px;
+    font-family: inherit;
+    border-radius: 8px;
+    border-color: rgb(204, 204, 204);
+    border-radius: 4px;
+    transition: all 100ms ease 0s;
+    outline: 0px !important;
+}

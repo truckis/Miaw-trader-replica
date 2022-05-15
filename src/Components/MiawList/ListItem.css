@@ -1,0 +1,25 @@
+.item-container {
+    margin: 10px 2px;   
+    padding: 0px 20px; 
+}
+
+.item-container label {
+    color: rgb(83, 147, 247);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .1px ;
+}
+
+.item-container h1 {
+    margin: 2px 0px;
+    font-size: 28px;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.item-container p {
+    color: rgb(254, 94, 83);
+    font-size: 12px;
+    font-weight: 500;
+    margin: 2px 0px;
+}

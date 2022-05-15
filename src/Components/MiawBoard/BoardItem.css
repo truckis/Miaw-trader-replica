@@ -1,0 +1,43 @@
+.board-item-container {
+    border: 1px solid rgb(133, 140, 148);
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(66 66 66 / 5%) 0px 3px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2px 0px;
+    margin-bottom: 5px;
+}
+
+.board-item-container * {
+    margin: 1px 1px;
+} 
+
+.board-item-container div {
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgb(133, 140, 148);
+    border-radius: 50%;
+    background: rgb(235, 238, 241);
+    text-align: center ;
+    position: relative;
+    margin-bottom: -20px;
+    left: -13px;
+    top: -15px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-item-container h5 {
+    margin-left: 14px;
+    font-weight: 700;
+}
+
+.board-item-container h5:first-of-type {
+    color: rgb(83, 147, 247);
+    font-weight: 400 !important;
+}

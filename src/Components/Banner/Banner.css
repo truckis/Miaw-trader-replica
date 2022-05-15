@@ -1,0 +1,33 @@
+.banner {
+  display: flex;  
+  flex-direction: column;
+  background-color: rgb(14, 59, 164);
+  border-radius: 10px;
+  height: 7rem;
+  padding: 9px 9px 0px;
+}
+
+.banner-control {
+    height: 50%;
+    margin-bottom: 10px;
+}
+
+.banner-control h4 {
+    display: inline;
+    color: rgb(235, 238, 241);
+}
+
+.red {
+    color: rgb(255, 102, 99) !important;
+}
+
+.banner-control p {
+    color:rgb(235, 238, 241);
+    margin: 0px;
+    font-weight: 700;
+}
+
+.orange {
+    color: rgb(246, 181, 74) !important;
+    font-size: 12px;
+}

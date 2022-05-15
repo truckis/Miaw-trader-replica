@@ -1,0 +1,50 @@
+.nav-container {
+    display: flex;
+    padding: 7px 42px;
+}
+
+.nav-container * {
+    margin: 2px 0px;
+}
+
+.nav-container h2 {
+    color: rgb(83, 147, 247);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-container ul {
+    display: flex;
+}
+
+.nav-container ul li {
+    list-style-type: none;
+    margin: 10px 10px;
+}
+
+
+.nav-container ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(69, 73, 78);
+    font-weight: bold;
+    border-bottom: none;
+    transition: color .15s, border-bottom .15s;
+}
+
+.nav-container ul li a:hover {
+    color: rgb(146, 147, 149);
+    border-bottom: 1px solid rgb(83, 147, 247);
+}
+
+.nav-container h5 {
+    align-self: center;
+    padding-left: 45%;
+    color: rgb(69, 73, 78);
+    transition: color .2s;
+ }
+
+ .nav-container h5:hover {
+    color: rgb(146, 147, 149);
+    cursor: pointer;
+ }

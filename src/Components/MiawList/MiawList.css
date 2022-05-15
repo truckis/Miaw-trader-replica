@@ -1,0 +1,11 @@
+.list-container {
+    border: 1px solid rgb(133, 140, 148);
+    border-radius: 8px;
+    box-shadow: rgb(66 66 66 / 5%) 0px 3px 10px 0px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    padding: 10 20px;
+    display: flex;
+    justify-content:left;
+}
+
