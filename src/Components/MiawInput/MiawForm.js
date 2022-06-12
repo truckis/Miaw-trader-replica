@@ -49,14 +49,14 @@ const MiawForm = (props) => {
             <form onSubmit={submitFormHandler} className='miaw-form'>
                 <div>
                     <input type="text" ref={miawNameRef} placeholder='1 MIAW for init name'/>
-                    <button type="submit" onClick={submitFormHandler}>Connect Wallet</button>
+                    <button type="submit" onClick={submitFormHandler}>Post Message</button>
                 </div>
                 <div>
                     <AmountSelector onSelectedAmount={selectedAmountHandler} selected={selectedAmount}/>
                 </div>
                 <div>
                     <input type="text" ref={miawMessageRef} placeholder='1. Input text. 2.Click Miawing!🐱 '/>
-                    <button type="submit" onClick={submitFormHandler}>Connect Wallet</button>
+                    <button type="submit" onClick={submitFormHandler}>Post Message</button>
                 </div>
             </form>
         </>

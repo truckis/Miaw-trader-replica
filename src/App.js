@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
 import MiawForm from './Components/MiawInput/MiawForm';
@@ -6,40 +6,76 @@ import Banner from './Components/Banner/Banner';
 import MiawList from './Components/MiawList/MiawList';
 import Board from './Components/MiawBoard/Board';
 
-const dummy_content = [
-  {
-    name: "OldMcMiawer",
-    message: "Miaw Miaw Miaw Miaw Miaaaawwww",
-    amount: "30",
-    id: 1234
-  },
-  {
-    name: "JackSparrow",
-    message: "mush love miaw gang! I'll see you at the bottom!",
-    amount: "15",
-    id: 5490
-  },
-  {
-    name: "Thirst4Miaw",
-    message: "Say Miaw one more time",
-    amount: "10",
-    id: 222
-  }
-]
+
 
 
 function App() {
 
-  const [miawUserInput, setMiawUserInput] = useState(dummy_content)
+  const [miawUserInput, setMiawUserInput] = useState([])
   const [miawName, setMiawName] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [movies, setMovies] = useState([]);
 
-  const addMiawInput = (enteredInput) => {
-    setMiawUserInput(prevMiawUserInput => {
-      return [enteredInput, ...prevMiawUserInput]
-    })
-    setMiawName(enteredInput.name)
-    console.log(miawUserInput)
+  // const addMiawInput = (enteredInput) => {
+  //   setMiawUserInput(prevMiawUserInput => {
+  //     return [enteredInput, ...prevMiawUserInput]
+  //   })
+  //   setMiawName(enteredInput.name)
+  //   console.log(miawUserInput)
+  // }
+
+  async function addUserInput(inputs) {
+    console.log(inputs);
+    const response = await fetch('https://react-http-2c9d9-default-rtdb.firebaseio.com/message.json', {
+      method: 'POST',
+      body: JSON.stringify(inputs),
+      headers: {
+        'Content-Type': 'applicatio/json'
+      }
+    });
+    const data = await response.json()
+    console.log(data)
+    console.log(process.env.BASE_URL)
+    fetchListHandler()
   }
+
+  async function fetchListHandler() {
+    setIsLoading(true)
+    setError(null)
+    try {
+      const response = await fetch('https://react-http-2c9d9-default-rtdb.firebaseio.com/message.json');
+      if(!response.ok) {
+        throw new Error('Something went wrong')
+      }
+      const data = await response.json()
+
+        const loadedList = [];
+        for (const key in data) {
+          loadedList.push({
+            id: key,
+            name: data[key].name,
+            message: data[key].message,
+            amount:data[key].amount
+          })
+        }
+
+        setMiawUserInput(loadedList.reverse())
+
+      console.log('fetchListHandler executed')
+
+      
+
+      } catch (error) {
+        setError(error.message)
+      }
+      setIsLoading(false)
+    }
+
+     // Fetches the data on component load
+  useEffect(() => {
+    fetchListHandler()
+  }, [])
 
   return (
      <>
@@ -50,7 +86,7 @@ function App() {
       </div>
       <div className='right-container'>
         <Banner miawname={miawName}/>
-        <MiawForm onGetMiawInput={addMiawInput}/>
+        <MiawForm onGetMiawInput={addUserInput}/>
         <MiawList items={miawUserInput}/>
       </div>
      </div>
