@@ -12,18 +12,8 @@ import Board from './Components/MiawBoard/Board';
 function App() {
 
   const [miawUserInput, setMiawUserInput] = useState([])
-  const [miawName, setMiawName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [movies, setMovies] = useState([]);
-
-  // const addMiawInput = (enteredInput) => {
-  //   setMiawUserInput(prevMiawUserInput => {
-  //     return [enteredInput, ...prevMiawUserInput]
-  //   })
-  //   setMiawName(enteredInput.name)
-  //   console.log(miawUserInput)
-  // }
 
   async function addUserInput(inputs) {
     console.log(inputs);
@@ -59,13 +49,8 @@ function App() {
             amount:data[key].amount
           })
         }
-
         setMiawUserInput(loadedList.reverse())
-
-      console.log('fetchListHandler executed')
-
-      
-
+        
       } catch (error) {
         setError(error.message)
       }
