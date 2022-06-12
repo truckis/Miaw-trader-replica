@@ -14,6 +14,7 @@ function App() {
   const [miawUserInput, setMiawUserInput] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [miawName, setMiawName] = useState()
 
   async function addUserInput(inputs) {
     console.log(inputs);
@@ -50,7 +51,7 @@ function App() {
           })
         }
         setMiawUserInput(loadedList.reverse())
-        
+
       } catch (error) {
         setError(error.message)
       }
