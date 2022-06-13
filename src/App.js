@@ -12,9 +12,9 @@ import Board from './Components/MiawBoard/Board';
 function App() {
 
   const [miawUserInput, setMiawUserInput] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [miawName, setMiawName] = useState()
+  // const [isLoading, setIsLoading] = useState(false)
+  // const [error, setError] = useState(null)
+  // const [miawName, setMiawName] = useState()
 
   async function addUserInput(inputs) {
     console.log(inputs);
@@ -32,8 +32,8 @@ function App() {
   }
 
   async function fetchListHandler() {
-    setIsLoading(true)
-    setError(null)
+    // setIsLoading(true)
+    // setError(null)
     try {
       const response = await fetch('https://react-http-2c9d9-default-rtdb.firebaseio.com/message.json');
       if(!response.ok) {
@@ -51,11 +51,13 @@ function App() {
           })
         }
         setMiawUserInput(loadedList.reverse())
+        // setMiawName()
 
       } catch (error) {
-        setError(error.message)
+        // setError(error.message)
+        console.log('error')
       }
-      setIsLoading(false)
+      // setIsLoading(false)
     }
 
      // Fetches the data on component load
@@ -71,7 +73,7 @@ function App() {
         <Board />
       </div>
       <div className='right-container'>
-        <Banner miawname={miawName}/>
+        <Banner /*miawname={miawName}*//>
         <MiawForm onGetMiawInput={addUserInput}/>
         <MiawList items={miawUserInput}/>
       </div>
